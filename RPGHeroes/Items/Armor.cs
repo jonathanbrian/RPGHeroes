@@ -21,12 +21,9 @@ namespace RPG_Heroes.Items
          */
 
         public ArmorType ArmorType { get; set; }
-        public string Name { get; set; }
         public int ArmorAttribute { get; set; } //tell property for bonus attributes thr armor gives hero
-        public Slot Slot { get; set; }
-        public int RequiredLevel { get; set; }
 
-        public Armor(ArmorType armorType, string name, int armorAttribute, Slot slot, int requiredLevel)
+        public Armor(ArmorType armorType, string name, int armorAttribute, Slot slot, int requiredLevel) : base(name, requiredLevel, slot)
         {
             ArmorType = armorType;
             Name = name;
