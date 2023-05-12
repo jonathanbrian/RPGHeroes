@@ -10,7 +10,7 @@ namespace RPG_Heroes.Exceptions
     {
         public InvalidArmorException()
         {
-            Console.WriteLine("This armor is not valid for this hero");
+            Console.WriteLine("Invalid choice of armor. Required level is too high, or you are not allowed to equip this armor");
         }
     }
 }

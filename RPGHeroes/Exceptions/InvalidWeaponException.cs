@@ -10,7 +10,7 @@ namespace RPG_Heroes.Exceptions
     {
         public InvalidWeaponException()
         {
-            Console.WriteLine("This weapon is not valid for this hero");
+             Console.WriteLine("Invalid choice of weapon. Required level is too high, or you are not allowed to equip this weapon");
         }
     }
 }
