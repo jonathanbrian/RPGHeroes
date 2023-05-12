@@ -50,6 +50,7 @@ namespace RPG_Heroes.Heroes
             Equipment = Equipment;
             ValidWeaponTypes = new Enums.WeaponType[] { Enums.WeaponType.Staff, Enums.WeaponType.Wand };
             ValidArmorTypes = new Enums.ArmorType[] { Enums.ArmorType.Cloth };
+            HeroAttribute.DamagingAttribute = HeroAttribute.Intelligence; //Warrior: Strength, Ranger: Dexterity, Rogue: Dexterity
         }
         HeroAttribute heroAttribute = new HeroAttribute(1, 1, 8, 1, 1, 5);
     }
