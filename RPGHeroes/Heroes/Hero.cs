@@ -84,8 +84,16 @@ namespace RPG_Heroes.Heroes
             //equip armor if valid, if not throw exception. use conditional statements
             //how to check if valid? check seperate method below
         }
-        public void EquipWeapon(WeaponType weaponType)
+        public void EquipWeapon(Weapon weaponType)
         {
+            if((ValidWeaponTypes.Contains(weaponType.WeaponType) && (weaponType.RequiredLevel <= Level))) 
+            { 
+                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Weapon, weaponType); 
+            } 
+            else 
+            { 
+                throw new InvalidWeaponException(); 
+            }
             //equip weapon if valid, if not throw exception. use conditional statements
             //how to check if valid? check seperate method below 
         }
