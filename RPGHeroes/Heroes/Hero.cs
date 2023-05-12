@@ -112,7 +112,10 @@ namespace RPG_Heroes.Heroes
             //equip weapon if valid, if not throw exception. use conditional statements
             //how to check if valid? check seperate method below 
         }
-        public void Damage() { }
+        public void Damage(Weapon WeaponDamage) 
+        { 
+            int HeroDamage =  WeaponDamage * (1 + (HeroAttribute.DamagingAttribute/100)) //hvorfor sier den at Weapon ikke er en int? 
+        }
         public void TotalAttributes() { }
         public void Display()
         {
