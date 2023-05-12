@@ -126,7 +126,7 @@ namespace RPG_Heroes.Heroes
             sb.AppendFormat($"Character total intelligence: {HeroAttribute.Intelligence}\n"); //- need to make total a parameter?
                                                                                               //sb.AppendFormat("Character total damage: {0}\n", Damage); - need to make total a parameter?
 
-            foreach (var item in Equipment)
+            foreach (var item in Equipment) // hva skjer her, hvorfor fungerer ikke Equipment? 
             {
                 if (item.Value != null)
 
