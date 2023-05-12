@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using static RPG_Heroes.Enum.Enums;
@@ -47,10 +48,11 @@ namespace RPG_Heroes.Heroes
         //public shared fields
 
         public string Name { get; set; }
-        public int Level { get; set; } = 1;
-        public int LevelAttributes { get; set; }
+        public int Level { get; set; }
+        public int LevelAttributes { get; set; } //hvorfor ikke denne?
+        public HeroAttribute HeroAttribute { get; set; }
 
-        public Dictionary<Slot, Items.Items> Equipment { get; set; }
+        public KeyValuePair<Slot, Items.Items> Equipment { get; set; }
         public WeaponType[] ValidWeaponTypes { get; set; }
         public ArmorType[] ValidArmorTypes { get; set; }
 
@@ -58,30 +60,27 @@ namespace RPG_Heroes.Heroes
         {
             Name = name;
             Level = 1;
-            LevelAttributes = LevelAttributes;
-            Equipment = new Dictionary<Slot, Items.Items>();
+            LevelAttributes = LevelAttributes; //hvorfor ikke denne? 
+            Equipment = new KeyValuePair<Slot, Items.Items>[3]; //virker som det skal stå slikt for å ikke få error? Equipment = new KeyValuePair<Slot, Items.Items>();
 
-            ValidArmorTypes = ValidArmorTypes;
-            ValidWeaponTypes = ValidWeaponTypes;
+            //ValidArmorTypes = ValidArmorTypes;
+            //ValidWeaponTypes = ValidWeaponTypes;
         }
-
-
-
-
-
-
 
         //public facing methods: 
 
         //public void Constructor() { } (this one is the constructor created above)
         public void LevelUp()
         {
+            Level++;
+            HeroAttribute.Strength += HeroAttribute.LevelUpStrength;
+            HeroAttribute.Dexterity += HeroAttribute.LevelUpDexterity;
+            HeroAttribute.Intelligence += HeroAttribute.LevelUpIntelligence
             //increase level by 1, and increase strenth, dexterity and intelligence
-            //use a for loop? But what to set as maximum?
         }
         public void EquipArmor(ArmorType armorType)
         {
-
+            
             //equip armor if valid, if not throw exception. use conditional statements
             //how to check if valid? check seperate method below
         }

@@ -44,26 +44,26 @@ namespace RPG_Heroes.Heroes
             LevelUpDexterity = levelUpDexterity;
             LevelUpIntelligence = levelUpIntelligence;
         }
-        public void CalculateNewStrength(HeroAttribute h)
+        /*public void CalculateNewStrength(HeroAttribute h)
         {
             NewStrength =
-            (Strength
-            + (Level // how to make this work? want to use Level from Hero class
-            * LevelUpStrength));
-        }
-        public void CalculateNewDexterity(HeroAttribute h)
-        {
-            NewDexterity =
-                (Dexterity
-            + (Level // how to make this work? want to use Level from Hero class
-            * LevelUpDexterity));
-        }
-        public void CalculateNewINtelligence(HeroAttribute h)
-        {
-            NewIntelligence =
-                (Intelligence
-            + (Level // how to make this work? want to use Level from Hero class
-            * LevelUpIntelligence));
-        }
+             (Strength
+             + (Level // how to make this work? want to use Level from Hero class
+             * LevelUpStrength));
+         }
+         public void CalculateNewDexterity(HeroAttribute h)
+         {
+             NewDexterity =
+                 (Dexterity
+             + (Level // how to make this work? want to use Level from Hero class
+             * LevelUpDexterity));
+         }
+         public void CalculateNewINtelligence(HeroAttribute h)
+         {
+             NewIntelligence =
+                 (Intelligence
+             + (Level // how to make this work? want to use Level from Hero class
+             * LevelUpIntelligence));
+         }*/
     }
 }
