@@ -27,5 +27,11 @@ namespace RPG_Heroes.Items
         public int RequiredLevel { get; set; }
         public Slot Slot { get; set; }
 
+        protected Items(string name, int requiredLevel, Slot slot)
+        {
+            Name = name;
+            RequiredLevel = requiredLevel;
+            Slot = slot;
+        }
     }
 }
