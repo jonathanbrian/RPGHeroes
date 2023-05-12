@@ -61,7 +61,7 @@ namespace RPG_Heroes.Heroes
             Name = name;
             Level = 1;
             LevelAttributes = LevelAttributes; //hvorfor ikke denne? 
-            Equipment = new KeyValuePair<Slot, Items.Items>[3]; //virker som det skal stå slikt for å ikke få error? Equipment = new KeyValuePair<Slot, Items.Items>();
+            Equipment = new KeyValuePair<Slot, Items.Items>(); //virker som det skal stå slikt for å ikke få error? Equipment = new KeyValuePair<Slot, Items.Items>();
 
             //ValidArmorTypes = ValidArmorTypes;
             //ValidWeaponTypes = ValidWeaponTypes;
@@ -75,7 +75,7 @@ namespace RPG_Heroes.Heroes
             Level++;
             HeroAttribute.Strength += HeroAttribute.LevelUpStrength;
             HeroAttribute.Dexterity += HeroAttribute.LevelUpDexterity;
-            HeroAttribute.Intelligence += HeroAttribute.LevelUpIntelligence
+            HeroAttribute.Intelligence += HeroAttribute.LevelUpIntelligence;
             //increase level by 1, and increase strenth, dexterity and intelligence
         }
         public void EquipArmor(ArmorType armorType)
@@ -95,12 +95,12 @@ namespace RPG_Heroes.Heroes
         {
             //create an object for the String Builder class
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("Character name: {0}\n", Name);
+            sb.AppendFormat($"Character name: {Name}\n");
             //sb.AppendFormat("Character class: {0}\n", typeof.Name);
-            sb.AppendFormat("Character level: {0}\n", Level);
-            //sb.AppendFormat("Character total strength: {0}\n", Strength); - need to make total a parameter?
-            //sb.AppendFormat("Character total dexterity: {0}\n", Dexterity); - need to make total a parameter?
-            //sb.AppendFormat("Character total intelligence: {0}\n", Intelligence); - need to make total a parameter?
+            sb.AppendFormat($"Character level: {Level}\n");
+            sb.AppendFormat($"Character total strength: {HeroAttribute.Strength}\n"); //- need to make total a parameter?
+            sb.AppendFormat($"Character total dexterity: {HeroAttribute.Dexterity}\n"); //- need to make total a parameter?
+            sb.AppendFormat($"Character total intelligence: {HeroAttribute.Intelligence}\n"); //- need to make total a parameter?
             //sb.AppendFormat("Character total damage: {0}\n", Damage); - need to make total a parameter?
 
         }
