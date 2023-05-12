@@ -78,9 +78,24 @@ namespace RPG_Heroes.Heroes
             HeroAttribute.Intelligence += HeroAttribute.LevelUpIntelligence;
             //increase level by 1, and increase strenth, dexterity and intelligence
         }
-        public void EquipArmor(ArmorType armorType)
+        public void EquipArmor(Armor armorType)
         {
-            
+            if((ValidArmorTypes.Contains(armorType.ArmorType)&&(armorType.RequiredLevel <=Level)))
+                {
+                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Body, armorType); //hvordan sette opp at det er tre muligheter her?
+            }
+            if ((ValidArmorTypes.Contains(armorType.ArmorType) && (armorType.RequiredLevel <= Level)))
+            {
+                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Head, armorType); //hvordan sette opp at det er tre muligheter her?
+            }
+            if ((ValidArmorTypes.Contains(armorType.ArmorType) && (armorType.RequiredLevel <= Level)))
+            {
+                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Legs, armorType); //hvordan sette opp at det er tre muligheter her?
+            }
+            else
+            {
+                throw new InvalidArmorException();
+            }
             //equip armor if valid, if not throw exception. use conditional statements
             //how to check if valid? check seperate method below
         }
@@ -109,7 +124,16 @@ namespace RPG_Heroes.Heroes
             sb.AppendFormat($"Character total strength: {HeroAttribute.Strength}\n"); //- need to make total a parameter?
             sb.AppendFormat($"Character total dexterity: {HeroAttribute.Dexterity}\n"); //- need to make total a parameter?
             sb.AppendFormat($"Character total intelligence: {HeroAttribute.Intelligence}\n"); //- need to make total a parameter?
-            //sb.AppendFormat("Character total damage: {0}\n", Damage); - need to make total a parameter?
+                                                                                              //sb.AppendFormat("Character total damage: {0}\n", Damage); - need to make total a parameter?
+
+            foreach (var item in Equipment)
+            {
+                if (item.Value != null)
+
+                {
+                    Console.WriteLine($"{item.Key}:{item.Value.Name}");
+                }
+            }
 
         }
         public void CheckWeapon() { }
