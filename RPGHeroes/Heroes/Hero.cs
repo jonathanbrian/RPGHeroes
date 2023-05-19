@@ -53,7 +53,8 @@ namespace RPG_Heroes.Heroes
         public HeroAttribute LevelAttributes { get; set; }
         public HeroAttribute HeroAttribute { get; set; }
 
-        public Dictionary<Slot, Items.Items> Equipment { get; set; }
+        public Weapon EqippedWeapon { get; set; };
+        public Dictionary<Slot, Items.Armor> Equipment { get; set; }
         public WeaponType[] ValidWeaponTypes { get; set; }
         public ArmorType[] ValidArmorTypes { get; set; }
 
@@ -76,6 +77,15 @@ namespace RPG_Heroes.Heroes
         }
         public void EquipArmor(Armor armorToEquip)
         {
+         if ((armorToEquip.RequiredLevel > Level) || !ArmorTypes.Contains(armorToEquip.ArmorType)){
+            throw new InvalidArmorException();
+         }
+         else
+         {
+            Equipment.Add(armorToEquip.Slot, armorToEquip)
+         }
+
+            /*
             if((ValidArmorTypes.Contains(armorToEquip.ArmorType)&&(armorToEquip.RequiredLevel <=Level)))
                 {
                 Equipment = new Dictionary<Slot, Items.Items>(Slot.Body, armorToEquip); //hvordan sette opp at det er tre muligheter her?
@@ -92,9 +102,20 @@ namespace RPG_Heroes.Heroes
             {
                 throw new InvalidArmorException();
             }
+            */
         }
         public void EquipWeapon(Weapon weaponToEquip)
         {
+         if ((weaponToEquip.RequiredLevel > Level) || !ValidWeaponTypes.Contains(weaponToEquip.WeaponType)){
+            throw new InvalidWeaponException();
+         }
+         else
+         {
+            EqippedWeapon = weaponToEquip;
+         }    
+
+
+        /*    
             if((ValidWeaponTypes.Contains(weaponToEquip.WeaponType) && (weaponToEquip.RequiredLevel <= Level))) 
             {
                 Equipment = new Dictionary<Slot, Items.Items>(Slot.Weapon, weaponToEquip);
@@ -103,12 +124,14 @@ namespace RPG_Heroes.Heroes
             { 
                 throw new InvalidWeaponException(); 
             }
+        */
+
         }
         public double Damage()
         {
             double heroDamage = 0;
 
-            if (weapon == null)
+            if (EquippedWeapon == null)
             {
                 heroDamage = 1 * (1 + (double)HeroAttribute.DamagingAttribute / 100);
             }
