@@ -31,9 +31,7 @@ namespace RPG_Heroes.Heroes
         public int LevelUpStrength { get; set; }
         public int LevelUpDexterity { get; set; }
         public int LevelUpIntelligence { get; set; }
-        public int NewStrength { get; set; }
-        public int NewDexterity { get; set; }
-        public int NewIntelligence { get; set; }
+ 
         public int DamagingAttribute { get; set; }
 
         public HeroAttribute(int strength, int dexterity, int intelligence, int levelUpStrength, int levelUpDexterity, int levelUpIntelligence)
@@ -45,26 +43,6 @@ namespace RPG_Heroes.Heroes
             LevelUpDexterity = levelUpDexterity;
             LevelUpIntelligence = levelUpIntelligence;
         }
-        /*public void CalculateNewStrength(HeroAttribute h)
-        {
-            NewStrength =
-             (Strength
-             + (Level // how to make this work? want to use Level from Hero class
-             * LevelUpStrength));
-         }
-         public void CalculateNewDexterity(HeroAttribute h)
-         {
-             NewDexterity =
-                 (Dexterity
-             + (Level // how to make this work? want to use Level from Hero class
-             * LevelUpDexterity));
-         }
-         public void CalculateNewINtelligence(HeroAttribute h)
-         {
-             NewIntelligence =
-                 (Intelligence
-             + (Level // how to make this work? want to use Level from Hero class
-             * LevelUpIntelligence));
-         }*/
+       
     }
 }
