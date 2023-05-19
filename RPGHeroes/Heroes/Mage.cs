@@ -61,9 +61,6 @@ namespace RPG_Heroes.Heroes
         }
 
         
-        public override double Damage()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

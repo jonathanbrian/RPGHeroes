@@ -104,7 +104,21 @@ namespace RPG_Heroes.Heroes
                 throw new InvalidWeaponException(); 
             }
         }
-        public abstract double Damage();
+        public double Damage(Weapon weapon)
+        {
+            double heroDamage = 0;
+
+            if (Slot.Weapon == null)
+            {
+                heroDamage = 1 * (1 + (double)HeroAttribute.DamagingAttribute / 100);
+            }
+            else
+            {
+                heroDamage = weapon.WeaponDamage * (1 + (double)HeroAttribute.DamagingAttribute / 100);
+            }
+            return heroDamage;
+        }
+
         public abstract HeroAttribute TotalAttributes();
         public void DisplayHero()
         {

@@ -31,9 +31,6 @@ namespace RPG_Heroes.Heroes
         {
             throw new NotImplementedException();
         }
-        public override double Damage()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
