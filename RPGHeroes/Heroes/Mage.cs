@@ -8,6 +8,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static RPG_Heroes.Enum.Enums;
 
 namespace RPG_Heroes.Heroes
 {
