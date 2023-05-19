@@ -95,7 +95,7 @@ namespace RPG_Heroes.Heroes
         }
         public void EquipWeapon(Weapon weaponToEquip)
         {
-            if((ValidWeaponTypes.Contains(weaponToEquip.WeaponType) && (weaponToEquip.RequiredLevel <= Level) && weaponToEquip.Slot == Slot.Weapon)) 
+            if((ValidWeaponTypes.Contains(weaponToEquip.WeaponType) && (weaponToEquip.RequiredLevel <= Level))) 
             {
                 Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Weapon, weaponToEquip);
             } 
