@@ -53,17 +53,13 @@ namespace RPG_Heroes.Heroes
             HeroAttribute heroAttribute = new HeroAttribute(1, 1, 8, 1, 1, 5);
             HeroAttribute.DamagingAttribute = HeroAttribute.Intelligence; //Warrior: Strength, Ranger: Dexterity, Rogue: Dexterity
         }
-        
 
         public override HeroAttribute TotalAttributes()
         {
-            //  int totalStrength = LevelAttributes.Strength;
-            //  int totalDexterity = LevelAttributes.Dexterity;
-            //  int totalIntelligence = LevelAttributes.Intelligence;
-            throw new NotImplementedException();
-
+            
+            throw new NotImplementedException();   
         }
-        
+
         
         public override double Damage()
         {

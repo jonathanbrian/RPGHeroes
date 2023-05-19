@@ -74,30 +74,30 @@ namespace RPG_Heroes.Heroes
             HeroAttribute.Intelligence += HeroAttribute.LevelUpIntelligence;
             //increase level by 1, and increase strenth, dexterity and intelligence
         }
-        public void EquipArmor(Armor armorType)
+        public void EquipArmor(Armor armorToEquip)
         {
-            if((ValidArmorTypes.Contains(armorType.ArmorType)&&(armorType.RequiredLevel <=Level)))
+            if((ValidArmorTypes.Contains(armorToEquip.ArmorType)&&(armorToEquip.RequiredLevel <=Level)))
                 {
-                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Body, armorType); //hvordan sette opp at det er tre muligheter her?
+                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Body, armorToEquip); //hvordan sette opp at det er tre muligheter her?
             }
-            if ((ValidArmorTypes.Contains(armorType.ArmorType) && (armorType.RequiredLevel <= Level)))
+            if ((ValidArmorTypes.Contains(armorToEquip.ArmorType) && (armorToEquip.RequiredLevel <= Level)))
             {
-                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Head, armorType); //hvordan sette opp at det er tre muligheter her?
+                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Head, armorToEquip); //hvordan sette opp at det er tre muligheter her?
             }
-            if ((ValidArmorTypes.Contains(armorType.ArmorType) && (armorType.RequiredLevel <= Level)))
+            if ((ValidArmorTypes.Contains(armorToEquip.ArmorType) && (armorToEquip.RequiredLevel <= Level)))
             {
-                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Legs, armorType); //hvordan sette opp at det er tre muligheter her?
+                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Legs, armorToEquip); //hvordan sette opp at det er tre muligheter her?
             }
             else
             {
                 throw new InvalidArmorException();
             }
         }
-        public void EquipWeapon(Weapon weaponType)
+        public void EquipWeapon(Weapon weaponToEquip)
         {
-            if((ValidWeaponTypes.Contains(weaponType.WeaponType) && (weaponType.RequiredLevel <= Level))) 
-            { 
-                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Weapon, weaponType); 
+            if((ValidWeaponTypes.Contains(weaponToEquip.WeaponType) && (weaponToEquip.RequiredLevel <= Level) && weaponToEquip.Slot == Slot.Weapon)) 
+            {
+                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Weapon, weaponToEquip);
             } 
             else 
             { 
