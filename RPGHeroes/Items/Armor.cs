@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPG_Heroes.Heroes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,13 +22,13 @@ namespace RPG_Heroes.Items
          */
 
         public ArmorType ArmorType { get; set; }
-        public int ArmorAttribute { get; set; } //tell property for bonus attributes thr armor gives hero
+        public HeroAttribute ArmorAttribute { get; set; } //tell property for bonus attributes thr armor gives hero
 
-        public Armor(ArmorType armorType, string name, int armorAttribute, Slot slot, int requiredLevel) : base(name, requiredLevel, slot)
+        public Armor(ArmorType armorType, string name, HeroAttribute attribute, Slot slot, int requiredLevel) : base(name, requiredLevel, slot)
         {
             ArmorType = armorType;
             Name = name;
-            ArmorAttribute = armorAttribute;
+            ArmorAttribute = new (attribute.Strength, attribute.Dexterity, attribute.Intelligence, attribute.LevelUpStrength, attribute.LevelUpDexterity, attribute.LevelUpIntelligence);
             Slot = slot;
             RequiredLevel = requiredLevel;
         }
