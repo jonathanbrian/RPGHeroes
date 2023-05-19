@@ -53,7 +53,7 @@ namespace RPG_Heroes.Heroes
         public HeroAttribute LevelAttributes { get; set; }
         public HeroAttribute HeroAttribute { get; set; }
 
-        public KeyValuePair<Slot, Items.Items> Equipment { get; set; }
+        public Dictionary<Slot, Items.Items> Equipment { get; set; }
         public WeaponType[] ValidWeaponTypes { get; set; }
         public ArmorType[] ValidArmorTypes { get; set; }
 
@@ -61,7 +61,7 @@ namespace RPG_Heroes.Heroes
         {
             Name = name;
             Level = 1;
-            Equipment = new KeyValuePair<Slot, Items.Items>(); 
+            Equipment = new Dictionary<Slot, Items.Items>(); 
         }
 
         
@@ -78,15 +78,15 @@ namespace RPG_Heroes.Heroes
         {
             if((ValidArmorTypes.Contains(armorToEquip.ArmorType)&&(armorToEquip.RequiredLevel <=Level)))
                 {
-                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Body, armorToEquip); //hvordan sette opp at det er tre muligheter her?
+                Equipment = new Dictionary<Slot, Items.Items>(Slot.Body, armorToEquip); //hvordan sette opp at det er tre muligheter her?
             }
             if ((ValidArmorTypes.Contains(armorToEquip.ArmorType) && (armorToEquip.RequiredLevel <= Level)))
             {
-                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Head, armorToEquip); //hvordan sette opp at det er tre muligheter her?
+                Equipment = new Dictionary<Slot, Items.Items>(Slot.Head, armorToEquip); //hvordan sette opp at det er tre muligheter her?
             }
             if ((ValidArmorTypes.Contains(armorToEquip.ArmorType) && (armorToEquip.RequiredLevel <= Level)))
             {
-                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Legs, armorToEquip); //hvordan sette opp at det er tre muligheter her?
+                Equipment = new Dictionary<Slot, Items.Items>(Slot.Legs, armorToEquip); //hvordan sette opp at det er tre muligheter her?
             }
             else
             {
@@ -97,18 +97,18 @@ namespace RPG_Heroes.Heroes
         {
             if((ValidWeaponTypes.Contains(weaponToEquip.WeaponType) && (weaponToEquip.RequiredLevel <= Level))) 
             {
-                Equipment = new KeyValuePair<Slot, Items.Items>(Slot.Weapon, weaponToEquip);
+                Equipment = new Dictionary<Slot, Items.Items>(Slot.Weapon, weaponToEquip);
             } 
             else 
             { 
                 throw new InvalidWeaponException(); 
             }
         }
-        public double Damage(Weapon weapon)
+        public double Damage()
         {
             double heroDamage = 0;
 
-            if (Slot.Weapon == null)
+            if (weapon == null)
             {
                 heroDamage = 1 * (1 + (double)HeroAttribute.DamagingAttribute / 100);
             }
