@@ -49,7 +49,8 @@ namespace RPG_Heroes.Heroes
 
         public string Name { get; set; }
         public int Level { get; set; }
-        public int LevelAttributes { get; set; } //hvorfor ikke denne?
+        public string ClassName { get; set; }
+        public HeroAttribute LevelAttributes { get; set; }
         public HeroAttribute HeroAttribute { get; set; }
 
         public KeyValuePair<Slot, Items.Items> Equipment { get; set; }
@@ -60,16 +61,11 @@ namespace RPG_Heroes.Heroes
         {
             Name = name;
             Level = 1;
-            LevelAttributes = LevelAttributes; //hvorfor ikke denne? 
-            Equipment = new KeyValuePair<Slot, Items.Items>(); //virker som det skal stå slikt for å ikke få error? Equipment = new KeyValuePair<Slot, Items.Items>();
-
-            //ValidArmorTypes = ValidArmorTypes;
-            //ValidWeaponTypes = ValidWeaponTypes;
+            Equipment = new KeyValuePair<Slot, Items.Items>(); 
         }
 
-        //public facing methods: 
-
-        //public void Constructor() { } (this one is the constructor created above)
+        
+      
         public void LevelUp()
         {
             Level++;
@@ -96,8 +92,6 @@ namespace RPG_Heroes.Heroes
             {
                 throw new InvalidArmorException();
             }
-            //equip armor if valid, if not throw exception. use conditional statements
-            //how to check if valid? check seperate method below
         }
         public void EquipWeapon(Weapon weaponType)
         {
@@ -109,39 +103,19 @@ namespace RPG_Heroes.Heroes
             { 
                 throw new InvalidWeaponException(); 
             }
-            //equip weapon if valid, if not throw exception. use conditional statements
-            //how to check if valid? check seperate method below 
         }
-        public void Damage(Weapon WeaponDamage) 
-        { 
-            int HeroDamage =  WeaponDamage * (1 + (HeroAttribute.DamagingAttribute/100)) //hvorfor sier den at Weapon ikke er en int? 
-        }
-        public void TotalAttributes() { }
-        public void Display()
+        public abstract double Damage();
+        public abstract HeroAttribute TotalAttributes();
+        public void DisplayHero()
         {
-            //create an object for the String Builder class
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat($"Character name: {Name}\n");
-            //sb.AppendFormat("Character class: {0}\n", typeof.Name);
+            sb.AppendFormat($"Character class: {ClassName}\n");
             sb.AppendFormat($"Character level: {Level}\n");
-            sb.AppendFormat($"Character total strength: {HeroAttribute.Strength}\n"); //- need to make total a parameter?
-            sb.AppendFormat($"Character total dexterity: {HeroAttribute.Dexterity}\n"); //- need to make total a parameter?
-            sb.AppendFormat($"Character total intelligence: {HeroAttribute.Intelligence}\n"); //- need to make total a parameter?
-                                                                                              //sb.AppendFormat("Character total damage: {0}\n", Damage); - need to make total a parameter?
-
-            foreach (var item in Equipment) // hva skjer her, hvorfor fungerer ikke Equipment? 
-            {
-                if (item.Value != null)
-
-                {
-                    Console.WriteLine($"{item.Key}:{item.Value.Name}");
-                }
-            }
-
+            sb.AppendFormat($"Character total strength: {TotalAttributes().Strength}\n"); 
+            sb.AppendFormat($"Character total dexterity: {TotalAttributes().Dexterity}\n"); 
+            sb.AppendFormat($"Character total intelligence: {TotalAttributes().Intelligence}\n"); 
+            sb.AppendFormat($"Character total damage: {Damage()}\n");
         }
-        public void CheckWeapon() { }
-        //how to check if valid? 
-        public void CheckArmor() { }
-        //how to check if valid? 
     }
 }

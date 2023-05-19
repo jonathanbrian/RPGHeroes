@@ -20,7 +20,7 @@ namespace RPG_Heroes.Heroes
         *
         *NOTE: This class is used as the datatype for both LevelAttributes.
         *
-        *From Armor class: 
+        *From Armor class: I have added this to Armor class - don't think it's necessary here. 
         *In addition to an armor type, armor has attributes which provide bonuses to a heroes attributes when equipped. 
         *This field is of type HeroAttribute and should be called ArmorAttribute.
         */
