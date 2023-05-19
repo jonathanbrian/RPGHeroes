@@ -46,18 +46,24 @@ namespace RPG_Heroes.Heroes
         {
             Name = name;
             ClassName = "Mage";
-            Level = 1;
             Equipment = Equipment;
             ValidWeaponTypes = new Enums.WeaponType[] { Enums.WeaponType.Staff, Enums.WeaponType.Wand };
             ValidArmorTypes = new Enums.ArmorType[] { Enums.ArmorType.Cloth };
+            HeroAttribute heroAttribute = new HeroAttribute(1, 1, 8, 1, 1, 5);
             HeroAttribute.DamagingAttribute = HeroAttribute.Intelligence; //Warrior: Strength, Ranger: Dexterity, Rogue: Dexterity
         }
-        HeroAttribute heroAttribute = new HeroAttribute(1, 1, 8, 1, 1, 5);
+        
 
         public override HeroAttribute TotalAttributes()
         {
+            //  int totalStrength = LevelAttributes.Strength;
+            //  int totalDexterity = LevelAttributes.Dexterity;
+            //  int totalIntelligence = LevelAttributes.Intelligence;
             throw new NotImplementedException();
+
         }
+        
+        
         public override double Damage()
         {
             throw new NotImplementedException();
